@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.location);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         Log.d("MainActivity","it runs here");
-        if ( ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if ( ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.d("MainActivity", "it runs here inside if");
           Log.d("MainActivity","No permission");
           //ask for permission
-          //  ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},REQUEST_LOCATION);
+         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_LOCATION);
         }else {
             mFusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
 
